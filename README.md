@@ -1,32 +1,34 @@
-# MPI Muara Profile Industries marketing site
+# PT Karya Maritim / MPI Website
 
-Pastel cyan single page marketing site with a WebGL hero (Three.js procedural gradient plus floating glossy 3D polymer pellets), built with React, TypeScript, Vite and Tailwind CSS.
+Website ini dibuat dengan React, TypeScript, Vite, Tailwind CSS, dan Three.js.
 
-## Run locally
+## Cara paling mudah: deploy ke Vercel lewat GitHub
+
+**Kamu tidak perlu menjalankan `npm install` di komputer jika hanya ingin deploy lewat GitHub.** Vercel akan memasang semua paket dari `package-lock.json` secara otomatis.
+
+1. Ekstrak ZIP ini.
+2. Buka folder hasil ekstrak. Pastikan file `package.json`, `package-lock.json`, `index.html`, dan folder `src` terlihat langsung di dalam folder tersebut.
+3. Upload seluruh ISI folder ini ke repository GitHub (jangan upload folder pembungkus yang membuat `package.json` berada satu tingkat lebih dalam).
+4. Di Vercel pilih **Add New → Project**, lalu pilih repository GitHub tadi.
+5. Pada pengaturan project, pastikan **Root Directory** adalah `./` (folder utama repository).
+6. Pastikan pengaturan build berikut:
+   - Framework Preset: **Vite**
+   - Build Command: `npm run build`
+   - Output Directory: `dist`
+   - Install Command: `npm install`
+7. Klik **Deploy**.
+
+## Jika ingin menjalankan di komputer (opsional)
+
+Install **Node.js 22 LTS** dari https://nodejs.org terlebih dahulu. Setelah itu buka terminal di folder project (folder yang berisi `package.json`), lalu jalankan:
 
 ```bash
 npm install
 npm run dev
 ```
 
-## Production build
+Buka alamat lokal yang ditampilkan di terminal.
 
-```bash
-npm run build
-npm run preview
-```
+## Jika deploy Vercel masih error
 
-## Deploy to GitHub
-
-```bash
-git init
-git add .
-git commit -m "MPI marketing site"
-git branch -M main
-git remote add origin https://github.com/<your-user>/mpi-site.git
-git push -u origin main
-```
-
-## Deploy to Vercel
-
-Import the GitHub repository at vercel.com. The included `vercel.json` sets the Vite framework, build command and `dist` output directory, so no extra configuration is needed. Vercel will build and serve the site automatically on every push to `main`.
+Buka project di Vercel → **Deployments** → pilih deployment yang gagal → **Build Logs**. Salin pesan error merah paling bawah untuk diperiksa. Jangan mengubah Build Command atau Output Directory secara acak.
