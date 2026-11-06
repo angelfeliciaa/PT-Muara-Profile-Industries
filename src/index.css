@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 190 60% 99%;
+    --foreground: 196 48% 10%;
+    --card: 0 0% 100%;
+    --card-foreground: 196 48% 10%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 196 48% 10%;
+    --primary: 193 90% 38%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 190 80% 95%;
+    --secondary-foreground: 196 48% 10%;
+    --muted: 190 40% 94%;
+    --muted-foreground: 196 20% 34%;
+    --accent: 227 92% 85%;
+    --accent-foreground: 196 48% 10%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 193 35% 88%;
+    --input: 193 35% 88%;
+    --ring: 193 90% 38%;
+    --radius: 1.5rem;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif;
+    overflow-x: hidden;
+  }
+
+  .font-mono-label {
+    font-family: 'IBM Plex Mono', ui-monospace, monospace;
+  }
+}
+
+@layer components {
+  .container-8 {
+    padding-left: 8%;
+    padding-right: 8%;
+  }
+
+  .label-mono {
+    font-family: 'IBM Plex Mono', ui-monospace, monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(28px) scale(0.98);
+    transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+  }
+
+  .reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+
+  .pill-btn {
+    @apply inline-flex items-center gap-3 rounded-full px-7 py-3.5 text-sm font-semibold transition-all duration-200 cursor-pointer;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+@keyframes marquee-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.marquee-track {
+  width: max-content;
+  animation: marquee-scroll 32s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none;
+  }
+}
